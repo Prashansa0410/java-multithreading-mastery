@@ -1,5 +1,6 @@
 package examples.callablefuture;
 
+import java.time.LocalTime;
 import java.util.concurrent.*;
 
 public class FuturePollingDemo {
@@ -12,8 +13,11 @@ public class FuturePollingDemo {
 
         Future<String> result = service.submit(task);
         while(!result.isDone()){
-            System.out.println("Processing");
+            System.out.println(
+                    LocalTime.now() +
+                            " Processing...");
             Thread.sleep(1000);
+
         }
         System.out.println(result.get());
         service.shutdown();
