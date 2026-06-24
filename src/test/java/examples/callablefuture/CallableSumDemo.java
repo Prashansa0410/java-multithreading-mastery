@@ -1,8 +1,8 @@
-package practice.session11_part2;
+package examples.callablefuture;
 
 import java.util.concurrent.*;
 
-public class Homework1 {
+public class CallableSumDemo {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService service = Executors.newSingleThreadExecutor();
 

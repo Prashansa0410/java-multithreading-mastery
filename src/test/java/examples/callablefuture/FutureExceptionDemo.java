@@ -1,11 +1,8 @@
-package practice.session11_part2;
+package examples.callablefuture;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
-public class Homework3 {
+public class FutureExceptionDemo {
     public static void main(String[] args) {
         ExecutorService service = Executors.newSingleThreadExecutor();
         Callable<Integer> task = ()->{
@@ -16,8 +13,10 @@ public class Homework3 {
         try{
              result.get();
         }
-        catch(Exception e){
-            e.getCause();
+        catch(ExecutionException e){
+            System.out.println(e.getCause());
+        }catch (InterruptedException e) {
+            e.printStackTrace();
         }
         service.shutdown();
 
